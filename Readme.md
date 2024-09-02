@@ -1,1 +1,1 @@
-Checking
+In this repo i will be adding all the Striver A-Z questions that i will be completing as well as i will be writting the important points related to it and its apporach
