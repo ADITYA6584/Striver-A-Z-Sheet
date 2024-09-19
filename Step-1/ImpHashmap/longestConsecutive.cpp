@@ -4,6 +4,7 @@
 using namespace std;
 /*
 Approach -> 1
+//Use of Heap set to find the best solution**************************************
 Optimal Solution
 Time Complexity -> O(N) and Space Complexity -> O(1)
 */
