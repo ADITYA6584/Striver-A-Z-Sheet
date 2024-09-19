@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <unordered_set>
 using namespace std;
 /*
 Approach -> 1
@@ -8,7 +9,37 @@ Approach -> 1
 Optimal Solution
 Time Complexity -> O(N) and Space Complexity -> O(1)
 */
-
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) 
+    {
+        unordered_set <int> set1;
+        int count =0;
+        for(int i=0;i<nums.size();i++)
+        {
+            set1.insert(nums[i]);       //Insertion in unordered set
+        }
+    
+        for(int i=0;i<nums.size();i++)
+        {
+            if(set1.find(nums[i]-1)==set1.end())    //Check for n-1 in hash
+            {
+                int subcount =0;
+                int temp=nums[i];
+                while(set1.find(temp)!=set1.end())  //Check for n+1 in hash and increase the count
+                {
+                    temp++;
+                    subcount++;
+                    if(count<subcount)
+                    {
+                        count =subcount;
+                    }
+                }
+            }
+        }
+        return count;
+    }
+};
 
 //Approach ->2  My own approach
 /*
