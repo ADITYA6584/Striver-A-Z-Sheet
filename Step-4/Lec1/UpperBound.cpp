@@ -1,8 +1,8 @@
-//This is important as well as it will help  in different problem
+//This is a tricky question
+// Practice it -> Its a simple but tricky
 
-int lowerBound(vector<int> num, int n, int target) 
-{
-	// Using Binary Search
+int upperBound(vector<int> &num, int target, int n) {
+    // Using Binary Search
         int start = 0;
         int end = num.size() - 1;
         int mid;
@@ -11,7 +11,7 @@ int lowerBound(vector<int> num, int n, int target)
         {
             mid = start + (end - start) / 2;  
 
-            if (num[mid] >= target)     //This is the difference
+            if (num[mid] > target) 
             {
                 ans = mid;
                 end = mid - 1; 
