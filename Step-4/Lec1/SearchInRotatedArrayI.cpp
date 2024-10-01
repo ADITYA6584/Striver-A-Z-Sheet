@@ -9,6 +9,81 @@ Approach -> 1 Time Complexity is O(logN)
 3. Return the ans if found and if not return -1
 
 */
+int pivot(vector <int> v)
+{
+    int s =0;
+    int e = v.size()-1;
+    int mid = s + (e-s)/2;
+    while(s<=e)
+    {
+        if(v[mid]>v[0])
+        {
+            s = mid+1;
+        }
+        else if(v[mid]<v[0])
+        {
+            e = mid-1;
+        }
+        mid = s + (e-s)/2;
+    }
+    return mid;
+}
+
+int BinarySearch(vector <int>v ,int start,int end,int target)
+{
+    int ans = -1;
+    int s =start;
+    int e = end;
+    int mid = s + (e-s)/2;
+    while(s<=e)
+    {
+        if(v[mid]==target)
+        {
+            ans = mid;
+            return ans;
+        }
+        else if(v[mid]>target)
+        {
+            e = mid-1;
+        }
+        else
+        {
+            s = mid+1;
+        }
+        mid = s + (e-s)/2;
+    }
+    return ans;
+}
+
+int main() {
+    // Write C++ code here
+    vector <int> v = {7,8,9,1,2,3,4,5,6};
+    int target,ans =-1;
+    cout<<"entre your target ";
+    cin>>target;
+    int end = v.size()-1;
+    int dif = pivot(v);
+    int left =BinarySearch(v,0,dif-1,target);         //Left
+    int right = BinarySearch(v,dif,end,target);
+    if(left==-1 && right ==-1) 
+    {
+        cout<<-1<<endl;
+        return -1;
+    }
+    else if(left==-1) 
+    {
+        cout<<right<<endl;
+        return right;
+    }
+    else if(right==-1) 
+    {
+        cout<<left<<endl;
+        return left;
+    }
+    return 0;
+}
+
+cout<<"***************************************************"<<endl;
 
 class Solution {
     int pivot(vector <int> num)
