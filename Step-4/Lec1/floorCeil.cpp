@@ -16,7 +16,7 @@ pair<int, int> findFloorCeiling(vector<int>& arr, int n, int x) {
     {
         int mid = low + (high - low) / 2;
 
-        if (arr[mid] < x) 
+        if (arr[mid] <= x) 
         {
             floor = arr[mid]; 
             low = mid + 1;    
@@ -44,6 +44,33 @@ pair<int, int> findFloorCeiling(vector<int>& arr, int n, int x) {
         else 
         {
             low = mid + 1;      
+        }
+    }
+    
+    return {floor, ceiling};
+}
+
+// Approach->2
+// Short and simply combined
+pair<int, int> getFloorAndCeil(vector<int> &arr, int n, int x) {
+	// Write your code here.
+	int floor = -1, ceiling = -1;
+    int low = 0, high = n - 1;
+    
+    // Finding the floor
+    while (low <= high) 
+    {
+        int mid = low + (high - low) / 2;
+
+        if (arr[mid] <= x) 
+        {
+            floor = arr[mid]; 
+            low = mid + 1;    
+        } 
+        if (arr[mid] >= x) 
+        {
+            ceiling = arr[mid]; // Update ceiling
+            high = mid - 1;     
         }
     }
     
