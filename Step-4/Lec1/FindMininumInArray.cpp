@@ -41,5 +41,5 @@ int findMin(vector<int>& arr)
 		}
 		mid = s+(e-s)/2;
 	}
-	return arr[0];
+	return arr[s];
 }
