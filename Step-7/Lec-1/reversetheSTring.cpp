@@ -20,7 +20,8 @@ Using Array
 
 class Solution {
 public:
-    string reverseWords(string str) {
+    string reverseWords(string str) 
+    {
         //New library used for seprating the words
         stringstream s(str);
         string word;
